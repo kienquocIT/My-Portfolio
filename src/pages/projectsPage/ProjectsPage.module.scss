@@ -1,0 +1,100 @@
+.projectsPage {
+    background-color: #fff;
+    height: 100%;
+    width: 100%;
+  
+    .projectsPageContainer {
+      padding: 20px 40px;
+  
+      .projectsPageHeader {
+        color: #000;
+        margin-top: 20px;
+  
+        .title {
+          font-family: "Raleway", sans-serif;
+          font-size: 40px;
+          font-weight: 700;
+          padding-bottom: 5px;
+          border-bottom: 2px solid #000;
+        }
+  
+        .description {
+          font-family: "Poppins", sans-serif;
+          font-size: 15px;
+          font-weight: 400;
+          text-align: justify;
+          margin-top: 30px;
+        }
+      }
+  
+      .projectsPageContent {
+        margin-top: 60px;
+  
+        .contentRow {
+          display: flex;
+          flex-direction: row;
+          gap: 20px;
+          flex-wrap: wrap;
+  
+          .contentItem {
+            width: calc(33.33% - 20px);
+            height: 300px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: brightness(0.8);
+            transition: filter 1s ease;
+            overflow: hidden;
+  
+            &:hover {
+                filter: brightness(1);
+              }
+            
+              .projectName,
+              .projectLink {
+                position: absolute;
+                z-index: 2;
+                opacity: 0;
+                transform: translateY(10px);
+                transition: all 0.4s ease;
+              }
+            
+              &:hover .projectName,
+              &:hover .projectLink {
+                opacity: 1;
+                transform: translateY(0);
+              }
+            
+              .projectName {
+                font-family: "Raleway", sans-serif;
+                font-size: 16px;
+                font-weight: 600;
+                color: #fff;
+                background-color: #3d5cf5;
+                padding: 5px 10px;
+                top: 0;
+                left: 0;
+              }
+            
+              .projectLink {
+                top: 50%;
+                right: 50%;
+                transform: translate(50%, -40%);
+                opacity: 0;
+                transition: all 0.4s ease;
+              }
+            
+              &:hover .projectLink {
+                transform: translate(50%, -50%);
+                opacity: 1;
+              }
+          }
+        }
+      }
+    }
+}
+  
