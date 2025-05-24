@@ -1,106 +1,246 @@
 .contactPage {
-  background-color: #fff;
-  height: 100%;
+  background-color: #f8f9fa;
+  min-height: 100vh;
   width: 100%;
+  overflow-y: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(61, 92, 245, 0.05) 0%, rgba(61, 92, 245, 0.1) 100%);
+    z-index: 0;
+  }
 
   .contactPageContainer {
-      padding: 20px 40px;
+    flex: 1;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
 
-      .contactPageHeader {
-          color: #000;
-          margin-top: 20px;
+    .contactPageHeader {
+      text-align: center;
+      margin-bottom: 40px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
 
-          .title {
-              font-family: "Raleway", sans-serif;
-              font-size: 40px;
-              font-weight: 700;
-              padding-bottom: 5px;
-              border-bottom: 2px solid #000;
-          }
+      .title {
+        font-family: "Raleway", sans-serif;
+        font-size: 42px;
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 20px;
+        position: relative;
+        display: inline-block;
 
-          .description {
-              font-family: "Poppins", sans-serif;
-              font-size: 15px;
-              font-weight: 400;
-              text-align: justify;
-              margin-top: 30px;
-          }
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -10px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 60px;
+          height: 3px;
+          background: linear-gradient(90deg, #3d5cf5, #6c63ff);
+          border-radius: 2px;
+        }
       }
 
-      .contactPageContent {
+      .description {
+        font-family: "Poppins", sans-serif;
+        font-size: 16px;
+        line-height: 1.8;
+        color: #666;
+        margin: 0 auto;
+      }
+    }
+
+    .contactPageContent {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+
+      .contentRow {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 30px;
+        width: 100%;
+
+        @media (max-width: 992px) and (min-width: 481px){
           display: flex;
-          margin-top: 60px;
+          flex-direction: column;
+        }
 
-          .contentRow {
-              display: flex;
-              flex-wrap: wrap;
-              gap: 20px;
-              width: 100%;
+        @media (max-width: 480px) {
+          display: flex;
+        }
+        .contentColumn3,
+        .contentColumn7 {
+          background: #fff;
+          border-radius: 16px;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+          transition: all 0.3s ease;
+          overflow: hidden;
+          position: relative;
 
-              .contentColumn3,
-              .contentColumn7 {
-                  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                  padding: 20px;
-                  box-sizing: border-box;
-              }
-
-              .contentColumn3 {
-                  width: 40%;
-              }
-
-              .contentColumn7 {
-                  width: 58%;
-              }
-          }
-      }
-  }
-
-  // Tablet
-  @media (max-width: 1427px) {
-      .contactPageContainer {
-          padding: 20px;
-
-          .contactPageHeader {
-              .title {
-                  font-size: 32px;
-              }
-
-              .description {
-                  font-size: 14px;
-              }
+          &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #3d5cf5, #6c63ff);
+            opacity: 0;
+            transition: opacity 0.3s ease;
           }
 
-          .contactPageContent {
-              .contentRow {
-                  flex-direction: column;
+          &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
 
-                  .contentColumn3 {
-                      display: none;
-                  }
-
-                  .contentColumn7 {
-                      width: 100%;
-                      height: 600px;
-                  }
-              }
+            &::before {
+              opacity: 1;
+            }
           }
-      }
-  }
+        }
 
-  // Mobile
-  @media (max-width: 480px) {
-      .contactPageContainer {
+        .contentColumn3 {
           padding: 10px;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
 
-          .contactPageHeader {
-              .title {
-                  font-size: 24px;
-              }
-
-              .description {
-                  font-size: 13px;
-              }
+          @media (max-width: 480px) {
+            display: none;
           }
+
+          .groupInfo {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(61, 92, 245, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+
+            svg {
+              color: #3d5cf5;
+              flex-shrink: 0;
+            }
+
+            .infoContent {
+              h3 {
+                font-family: "Raleway", sans-serif;
+                font-size: 18px;
+                font-weight: 600;
+                color: #1a1a1a;
+                margin-bottom: 5px;
+              }
+
+              p {
+                font-family: "Poppins", sans-serif;
+                font-size: 14px;
+                color: #666;
+                line-height: 1.6;
+              }
+            }
+
+            &:hover {
+              // transform: translateX(10px);
+              border-color: #3d5cf5;
+              background: #fff;
+            }
+          }
+        }
+
+        .contentColumn7 {
+          padding: 30px;
+
+          @media (max-width: 480px) {
+            width: 100%;
+          }
+
+          .form {
+            .formGroup {
+              margin-bottom: 20px;
+
+              input, textarea {
+                width: 100%;
+                padding: 12px 16px;
+                border: 1px solid #e0e0e0;
+                border-radius: 8px;
+                font-family: "Poppins", sans-serif;
+                font-size: 14px;
+                transition: all 0.3s ease;
+                background: #f8f9fa;
+
+                &:focus {
+                  border-color: #3d5cf5;
+                  box-shadow: 0 0 0 3px rgba(61, 92, 245, 0.1);
+                  outline: none;
+                  background: #fff;
+                }
+
+                &::placeholder {
+                  color: #999;
+                }
+              }
+
+              textarea {
+                min-height: 120px;
+                resize: vertical;
+              }
+            }
+
+            button {
+              background: linear-gradient(90deg, #3d5cf5, #6c63ff);
+              color: #fff;
+              padding: 14px 28px;
+              border: none;
+              border-radius: 8px;
+              font-family: "Poppins", sans-serif;
+              font-weight: 600;
+              font-size: 15px;
+              cursor: pointer;
+              transition: all 0.3s ease;
+              width: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 8px;
+
+              &:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(61, 92, 245, 0.3);
+              }
+
+              &:active {
+                transform: translateY(0);
+              }
+            }
+          }
+        }
       }
+    }
   }
+
+
+
+
+  
 }
+
+

@@ -5,10 +5,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: fixed;
-    left: 0;
-    top: 0;
+    transition: all 0.3s ease-in-out;
+    position: relative;
     z-index: 1000;
+
 
     h2 {
         color: #fff;
@@ -25,7 +25,8 @@
         justify-content: center;
         align-items: center;
         gap: 10px;
-        margin-top: 20px;
+        flex-wrap: wrap;
+        padding: 0 10px;
 
         button {
             background-color: #333;
@@ -37,10 +38,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: background-color 0.3s;
+            transition: all 0.3s ease;
 
             &:hover {
                 background-color: #3d5cf5;
+                transform: scale(1.1);
             }
         }
     }
@@ -62,15 +64,16 @@
             font-weight: 400;
             opacity: 0.6;
             font-style: normal;
-            margin: 0 50px;
+            margin: 0 20px;
             padding: 10px 0;
             display: flex;
             align-items: center;
             gap: 10px;
-            transition: opacity 0.2s, color 0.3s;
+            transition: all 0.3s ease;
 
             &:hover {
                 opacity: 1;
+                transform: translateX(5px);
             }
 
             &.active {
@@ -79,7 +82,6 @@
                 border-left: 2px solid #3d5cf5;
                 background-color: rgba(255, 255, 255, 0.05);
                 padding-left: 12px;
-                transition: all 0.3s ease-in-out;
             }
         }
     }
@@ -91,94 +93,103 @@
         border-radius: 50%;
         border: 10px solid #555;
         margin-top: 20px;
+        transition: all 0.3s ease;
+
+        &:hover {
+            transform: scale(1.05);
+            border-color: #3d5cf5;
+        }
     }
 
-    // Tablet
-    @media (max-width: 1427px) {
-        width: 80px;
-        padding: 10px 0;
+    .mobileMenuButton {
+        display: none;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 1001;
+    }
+}
+
+// Tablet screens
+@media (max-width: 1024px) {
+    .navbar {
+        width: 30%;
+        
+        .avatar {
+            width: 150px;
+            height: 150px;
+        }
 
         h2 {
-            display: none;
+            font-size: 20px;
+        }
+    }
+}
+
+// Mobile screens
+@media (max-width: 768px) {
+    .navbar {
+        position: fixed;
+        left: -100%;
+        width: 250px;
+        background-color: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(10px);
+        
+        &.mobileOpen {
+            left: 0;
+        }
+
+        .mobileMenuButton {
+            display: block;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            margin-top: 60px;
+        }
+
+        h2 {
+            font-size: 18px;
+        }
+
+        .navbarLinks {
+            margin-top: 20px;
+            
+            a {
+                margin: 0 15px;
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+// Small mobile screens
+@media (max-width: 480px) {
+    .navbar {
+        width: 100%;
+        
+        .avatar {
+            width: 100px;
+            height: 100px;
         }
 
         .navbarSocial {
-            flex-direction: column;
-            gap: 15px;
-
             button {
                 width: 35px;
                 height: 35px;
             }
         }
-
-        .navbarLinks {
-            margin-top: 30px;
-
-            a {
-                margin: 0;
-                padding: 15px 0;
-                justify-content: center;
-
-                span {
-                    display: none;
-                }
-
-                &.active {
-                    border-left: none;
-                    border-bottom: 2px solid #3d5cf5;
-                    padding-left: 0;
-                }
-            }
-        }
-
-        .avatar {
-            width: 50px;
-            height: 50px;
-            border-width: 3px;
-            margin-top: 10px;
-        }
     }
+}
 
-    // Mobile
-    @media (max-width: 480px) {
-        width: 100%;
-        height: auto;
-        position: fixed;
-        bottom: 0;
-        top: auto;
-        flex-direction: row;
-        padding: 10px;
-        justify-content: space-around;
-
-        .avatar {
-            display: none;
-        }
-
-        .navbarSocial {
-            display: none;
-        }
-
-        .navbarLinks {
-            margin: 0;
-            flex-direction: row;
-            justify-content: space-around;
-            width: 100%;
-
-            a {
-                margin: 0;
-                padding: 10px;
-                font-size: 14px;
-
-                span {
-                    display: none;
-                }
-
-                &.active {
-                    border-left: none;
-                    border-bottom: 2px solid #3d5cf5;
-                }
-            }
-        }
-    }
+@media (min-width: 1025px) {
+      .mobileMenuButton {
+          display: none !important;
+      }
 }
