@@ -14,15 +14,15 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(61, 92, 245, 0.05) 0%, rgba(61, 92, 245, 0.1) 100%);
+    background: rgb(250, 250, 250);
     z-index: 0;
   }
 
   .contactPageContainer {
     flex: 1;
-    padding: 40px;
+    padding: 40px 0;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 40px;
     position: relative;
     z-index: 1;
     display: flex;
@@ -124,6 +124,11 @@
 
           @media (max-width: 480px) {
             display: none;
+          }
+
+          @media (max-width: 992px) and (min-width: 481px){
+            height: 300px;
+            gap: 10px;
           }
 
           .groupInfo {
