@@ -8,5 +8,20 @@
         height: 100%;
         width: 76%;
         background-color: #000;
+        overflow-y: auto;
+    }
+
+    // Tablet
+    @media (max-width: 1427px) {
+        .content {
+            width: 100%;
+        }
+    }
+
+    // Mobile
+    @media (max-width: 480px) {
+        .content {
+            width: 100%;
+        }
     }
 }

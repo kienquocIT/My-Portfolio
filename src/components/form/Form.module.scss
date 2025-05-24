@@ -1,0 +1,143 @@
+.form {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+
+    .formHeaderTitle {
+        font-family: 'Poppins', sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .formHeaderDescription {
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    .formBody {
+        margin-top: 20px;
+        width: 80%;
+
+        input, textarea {
+            width: 100%;
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 15px;
+        }
+
+        input {
+            padding: 10px;
+        }
+
+        textarea {
+            height: 150px;
+            padding: 10px;
+        }
+
+        .formLabel {
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+
+        .formButton {
+            position: relative;
+            button {
+                width: 50%;
+                padding: 15px 0;
+                border: none;
+                background-color: #3d5cf5;
+                font-size: 15px;
+                color: #fff;
+                font-weight: 700;
+                transition: all 0.5s ease-in-out;
+                cursor: pointer;
+                box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+                border-radius: 20px;
+                position: absolute;
+                right: 50%;
+                transform: translateX(50%);
+
+                &:hover {
+                    opacity: 0.8;
+                }
+
+                &:disabled {
+                    background-color: #ccc;
+                    cursor: not-allowed;
+                }
+            }
+        }
+
+        .formStatus {
+            text-align: center;
+            margin-top: 60px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .formHeaderTitle {
+            font-size: 20px;
+        }
+
+        .formHeaderDescription {
+            font-size: 13px;
+        }
+
+        .formBody {
+            width: 95%;
+
+            .formLabel {
+                font-size: 14px;
+            }
+
+            .formButton button {
+                width: 70%;
+                font-size: 14px;
+                padding: 12px 0;
+            }
+
+            textarea {
+                height: 120px;
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        .formHeaderTitle {
+            font-size: 18px;
+        }
+
+        .formHeaderDescription {
+            font-size: 12px;
+        }
+
+        .formBody {
+            width: 100%;
+
+            .formLabel {
+                font-size: 13px;
+            }
+
+            .formButton button {
+                width: 90%;
+                font-size: 13px;
+                padding: 10px 0;
+            }
+
+            textarea {
+                height: 100px;
+            }
+        }
+    }
+}
